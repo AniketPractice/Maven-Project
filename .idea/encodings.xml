@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/App-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/App-test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/App/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/App/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-module/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app-module/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common-module/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common-module/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/finance-module/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/finance-module/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hr-module/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hr-module/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/it-module/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/it-module/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/plugins-module/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/plugins-module/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/validator-module/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/validator-module/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,207 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.company</groupId>
+  <artifactId>Company</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>common-module</module>
+    <module>hr-module</module>
+    <module>finance-module</module>
+    <module>it-module</module>
+    <module>app-module</module>
+  </modules>
+
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <mysql.version>8.0.33</mysql.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- MySQL Connector dependency -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.33</version>
+      </dependency>
+
+      <!-- JUnit dependency for testing -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+      </dependency>
+
+        <!-- Log4j 2.x dependency -->
+        <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-api</artifactId>
+          <version>2.20.0</version>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-core</artifactId>
+          <version>2.20.0</version>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.maven.enforcer</groupId>
+          <artifactId>enforcer-api</artifactId>
+          <version>3.4.0</version>
+        </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+  </repositories>
+
+  <build>
+    <plugins>
+      <!-- Maven Compiler Plugin to set Java version -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
+
+      <!-- Maven Surefire Plugin for running unit tests -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <skipTests>false</skipTests>
+        </configuration>
+      </plugin>
+
+      <!-- Maven Site Plugin for generating project documentation -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.12.1</version>
+      </plugin>
+      <!-- Jacoco Plugin for generating code coverage reports -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.8</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+          <!--<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <version>3.4.0</version>
+            <executions>
+              <execution>
+                <id>validate-dependencies</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    &lt;!&ndash; Rule for Finance Module &ndash;&gt;
+                    <requireDependency>
+                      <message>Finance module must include payroll-lib dependency</message>
+                      <moduleRules>
+                        <moduleRule>
+                          <moduleRegex>.*finance.*</moduleRegex>
+                          <requiresDependency>
+                            <groupId>com.example</groupId>
+                            <artifactId>payroll-lib</artifactId>
+                          </requiresDependency>
+                        </moduleRule>
+                      </moduleRules>
+                    </requireDependency>
+
+                    &lt;!&ndash; Rule for HR Module &ndash;&gt;
+                    <requireDependency>
+                      <message>HR module must include employee-management-lib dependency</message>
+                      <moduleRules>
+                        <moduleRule>
+                          <moduleRegex>.*hr.*</moduleRegex>
+                          <requiresDependency>
+                            <groupId>com.example</groupId>
+                            <artifactId>employee-management-lib</artifactId>
+                          </requiresDependency>
+                        </moduleRule>
+                      </moduleRules>
+                    </requireDependency>
+
+                    &lt;!&ndash; Rule for IT Module &ndash;&gt;
+                    <requireDependency>
+                      <message>IT module must include system-access-lib dependency</message>
+                      <moduleRules>
+                        <moduleRule>
+                          <moduleRegex>.*it.*</moduleRegex>
+                          <requiresDependency>
+                            <groupId>com.example</groupId>
+                            <artifactId>system-access-lib</artifactId>
+                          </requiresDependency>
+                        </moduleRule>
+                      </moduleRules>
+                    </requireDependency>
+                  </rules>
+                  <fail>false</fail>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>-->
+        </plugins>
+      </build>
+
+  <!-- Maven Profiles for different environments -->
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <env>dev</env>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>test</id>
+      <properties>
+        <env>test</env>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>prod</id>
+      <properties>
+        <env>prod</env>
+      </properties>
+    </profile>
+  </profiles>
+</project>
