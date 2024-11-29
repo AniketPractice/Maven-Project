@@ -50,12 +50,6 @@
           <artifactId>log4j-core</artifactId>
           <version>2.20.0</version>
         </dependency>
-        <dependency>
-          <groupId>org.apache.maven.enforcer</groupId>
-          <artifactId>enforcer-api</artifactId>
-          <version>3.4.0</version>
-        </dependency>
-
     </dependencies>
   </dependencyManagement>
 
@@ -115,66 +109,20 @@
           </execution>
         </executions>
       </plugin>
-          <!--<plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-enforcer-plugin</artifactId>
-            <version>3.4.0</version>
+
+        <plugin>
+            <groupId>com.company.common</groupId>
+            <artifactId>common-module</artifactId>
+          <version>1.0-SNAPSHOT</version>
             <executions>
               <execution>
-                <id>validate-dependencies</id>
                 <phase>validate</phase>
                 <goals>
-                  <goal>enforce</goal>
+                  <goal>validate-dependencies</goal>
                 </goals>
-                <configuration>
-                  <rules>
-                    &lt;!&ndash; Rule for Finance Module &ndash;&gt;
-                    <requireDependency>
-                      <message>Finance module must include payroll-lib dependency</message>
-                      <moduleRules>
-                        <moduleRule>
-                          <moduleRegex>.*finance.*</moduleRegex>
-                          <requiresDependency>
-                            <groupId>com.example</groupId>
-                            <artifactId>payroll-lib</artifactId>
-                          </requiresDependency>
-                        </moduleRule>
-                      </moduleRules>
-                    </requireDependency>
-
-                    &lt;!&ndash; Rule for HR Module &ndash;&gt;
-                    <requireDependency>
-                      <message>HR module must include employee-management-lib dependency</message>
-                      <moduleRules>
-                        <moduleRule>
-                          <moduleRegex>.*hr.*</moduleRegex>
-                          <requiresDependency>
-                            <groupId>com.example</groupId>
-                            <artifactId>employee-management-lib</artifactId>
-                          </requiresDependency>
-                        </moduleRule>
-                      </moduleRules>
-                    </requireDependency>
-
-                    &lt;!&ndash; Rule for IT Module &ndash;&gt;
-                    <requireDependency>
-                      <message>IT module must include system-access-lib dependency</message>
-                      <moduleRules>
-                        <moduleRule>
-                          <moduleRegex>.*it.*</moduleRegex>
-                          <requiresDependency>
-                            <groupId>com.example</groupId>
-                            <artifactId>system-access-lib</artifactId>
-                          </requiresDependency>
-                        </moduleRule>
-                      </moduleRules>
-                    </requireDependency>
-                  </rules>
-                  <fail>false</fail>
-                </configuration>
               </execution>
             </executions>
-          </plugin>-->
+          </plugin>
         </plugins>
       </build>
 

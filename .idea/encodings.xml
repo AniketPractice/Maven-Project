@@ -9,6 +9,8 @@
     <file url="file://$PROJECT_DIR$/app-module/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common-module/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common-module/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/custom-plugin-module/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/custom-plugin-module/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/finance-module/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/finance-module/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hr-module/src/main/java" charset="UTF-8" />
